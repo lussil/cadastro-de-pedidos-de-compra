@@ -18,6 +18,15 @@ class ProdutoController extends Controller
         return view('produto.index', ['produtos' => $produtos]);
     }
 
+    public function search(Request $request)
+    {
+        $produtos = Produto::where('cod_barras', 'LIKE', "%{$request->cod_barras}%")
+            ->where('nome', 'LIKE', "%{$request->nome}%")
+            ->where('valor_unitario', 'LIKE', "%{$request->valor_unitario}%")
+            ->paginate(20);
+        return view('produto.index', ['produtos' => $produtos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

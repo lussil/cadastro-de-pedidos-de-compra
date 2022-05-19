@@ -16,15 +16,12 @@
             </ul>
         </div>
     @endif
-    @php
-    $pedido_id = $pedidoProdutoItens[0]->pedido_id;
-    @endphp
 
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Adicionar produto ao pedido</h5>
 
-            {{ Form::open(['url' => '/pedido_produto/' . $pedido_id . '/create']) }}
+            {{ Form::open(['url' => '/pedido_produto/' . $pedido->id . '/create']) }}
             <div class="row">
                 <div class="col-4">
                     {{ Form::label('produto', 'Produto:', ['class' => ' ']) }}
@@ -36,6 +33,7 @@
                 </div>
                 <div class="col-4 mt-3">
                     {{ Form::submit('Enviar', ['class' => 'btn btn-outline-success mt-2 mb-2']) }}
+                    <a class="btn btn-primary " href="{{ URL::to('pedidos') }}">Voltar</a>
                     {{ Form::close() }}
                 </div>
             </div>
@@ -43,7 +41,7 @@
 
 
         <div class="card-body">
-            <h5 class="card-title">Produtos do pedido : #{{ $pedido_id }}</h5>
+            <h5 class="card-title">Produtos do pedido : #{{ $pedido->id }}</h5>
             <table class="table table-light table-striped">
                 <thead>
                     <tr>

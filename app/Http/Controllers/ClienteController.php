@@ -18,6 +18,21 @@ class ClienteController extends Controller
         return view('cliente.index', ['clientes' => $clientes]);
     }
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $clientes = Cliente::where('cpf', 'LIKE', "%{$request->cpf}%")
+            ->where('nome', 'LIKE', "%{$request->nome}%")
+            ->where('email', 'LIKE', "%{$request->email}%")
+            ->paginate(20);
+        return view('cliente.index', ['clientes' => $clientes]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

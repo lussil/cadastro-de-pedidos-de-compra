@@ -8,7 +8,32 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <a href="{{ URL::to('pedido/create') }}" type="button" class="btn btn-success float-right">Novo pedido</a>
+            <a href="{{ URL::to('pedido/create') }}" type="button" class="btn btn-success float-right mb-2">Novo pedido</a>
+
+
+            {{ Form::open(['url' => '/pedido/search']) }}
+            <div class="row">
+                <div class="col-4">
+                    {{ Form::label('cliente', 'Cliente:', ['class' => ' ']) }}
+                    {{ Form::select('cliente_id', $clientes, null, ['class' => 'form-control ']) }}
+                </div>
+
+                <div class="col-4">
+                    {{ Form::label('status', 'status:', ['class' => ' ']) }}
+                    {{ Form::select('status', ['' => '', 'A' => 'Aberto', 'C' => 'Cancelado', 'P' => 'Pago'], null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-2">
+                    {{ Form::label('data_pedido', 'Data do pedido:') }}
+                    {{ Form::date('data_pedido', null, ['class' => 'form-control ']) }}
+                </div>
+                <div class="col-2">
+                    {{ Form::submit('Filtrar', ['class' => 'btn btn-outline-success mt-3 mb-2']) }}
+                    <a class="btn btn-primary mt-3 mb-2" href="{{ URL::to('pedidos') }}">Limpar</a>
+                    {{ Form::close() }}
+                </div>
+
+            </div>
+
         </div>
         <div class="card-body">
             <h5 class="card-title">Pedidos</h5>

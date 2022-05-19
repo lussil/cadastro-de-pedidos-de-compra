@@ -12,6 +12,9 @@
             </ul>
         </div>
     @endif
+    @php
+        $total = 0;
+    @endphp
     <div class="card">
         <div class="card-header">
             Visualizar pedido : #{{ $pedido->id }}
@@ -27,15 +30,25 @@
                 <p>Última modificação: {{ Carbon\Carbon::parse($pedido->updated_at)->format('d/m/Y H:i') }}</p>
                 <p>Produtos:
                 <ul>
-                    @foreach ($pedido->produto as $produto)
-                        <li> <a href=" {{ URL::to('produto/' . $produto->id) }}" target="_blank"
-                                rel="noopener noreferrer">{{ $produto->nome }}</a></td>
+                    @foreach ($pedidoProdutoItens as $key => $pedidoProduto)
+                        <li> <a href=" {{ URL::to('produto/' . $pedidoProduto->produto_id) }}" target="_blank"
+                                rel="noopener noreferrer">{{ $pedidoProduto->produto->nome }} </a>
+                            <ul>
+                                <li>Quantidade : {{ $pedidoProduto->quantidade }} </li>
+                                <li>Valor : {{ $pedidoProduto->produto->valor_unitario }}</li>
+                            </ul>
+
                         </li>
+                        @php
+                        $total += $pedidoProduto->produto->valor_unitario * $pedidoProduto->quantidade ;
+                    @endphp
                     @endforeach
                 </ul>
                 <p>
+                <p>Valor Total : {{ $total}} </p>
+            
 
-                    <a class="btn btn-primary " href="{{ URL::to('pedidos') }}">Voltar</a>
+                <a class="btn btn-primary " href="{{ URL::to('pedidos') }}">Voltar</a>
             </div>
 
 

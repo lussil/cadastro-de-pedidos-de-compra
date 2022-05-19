@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use App\Models\Cliente;
+use App\Models\PedidoProduto;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -16,7 +17,19 @@ class PedidoController extends Controller
     public function index()
     {
         $pedidos = Pedido::paginate(20);
-        $clientes = Cliente::pluck('nome','id');
+        $clientes = Cliente::pluck('nome', 'id');
+        return view('pedido.index', ['pedidos' => $pedidos, 'clientes' => $clientes]);
+    }
+
+
+    public function search(Request $request)
+    {
+        $pedidos = Pedido::where('cliente_id', '=', $request->cliente_id)
+            // ->where('status', '=', $request->status)
+            // ->where('data_pedido', '=', $request->data_pedido)
+            ->paginate(20);
+        // dd($request);
+        $clientes = Cliente::pluck('nome', 'id');
         return view('pedido.index', ['pedidos' => $pedidos, 'clientes' => $clientes]);
     }
 
@@ -27,8 +40,8 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        $clientes = Cliente::pluck('nome','id');
-        return view('pedido.create',['clientes' => $clientes]);
+        $clientes = Cliente::pluck('nome', 'id');
+        return view('pedido.create', ['clientes' => $clientes]);
     }
 
     /**
@@ -70,9 +83,11 @@ class PedidoController extends Controller
      */
     public function show($id)
     {
+        $clientes = Cliente::pluck('nome', 'id');
         $pedido = Pedido::findOrFail($id);
-        $clientes = Cliente::pluck('nome','id');
-        return view('pedido.show', ['pedido' => $pedido, 'clientes' => $clientes]);
+        $pedidoProdutoItens = PedidoProduto::where('pedido_id', '=', $id)->get();
+        // dd($pedidoProdutoItens[0]->produto->nome);
+        return view('pedido.show', ['pedido' => $pedido, 'clientes' => $clientes, 'pedidoProdutoItens' => $pedidoProdutoItens]);
     }
 
     /**
@@ -84,7 +99,7 @@ class PedidoController extends Controller
     public function edit($id)
     {
         $pedido = Pedido::findOrFail($id);
-        $clientes = Cliente::pluck('nome','id');
+        $clientes = Cliente::pluck('nome', 'id');
         return view('pedido.edit',  ['pedido' => $pedido, 'clientes' => $clientes]);
     }
 
