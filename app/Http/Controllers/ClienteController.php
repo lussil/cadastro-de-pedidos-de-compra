@@ -29,7 +29,7 @@ class ClienteController extends Controller
         $clientes = Cliente::where('cpf', 'LIKE', "%{$request->cpf}%")
             ->where('nome', 'LIKE', "%{$request->nome}%")
             ->where('email', 'LIKE', "%{$request->email}%")
-            ->paginate(20);
+            ->paginate($request->number_page);
         return view('cliente.index', ['clientes' => $clientes]);
     }
 

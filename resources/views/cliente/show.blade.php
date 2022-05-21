@@ -23,8 +23,8 @@
                 <p>Nome:                {{ $cliente->nome }}</p>
                 <p>E-mail:              {{ $cliente->email }}</p>
                 <p>CPF:                 {{ $cliente->cpf }}</p>
-                <p>Criação:             {{ Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y H:i') }}</p>
-                <p>Última modificação:  {{ Carbon\Carbon::parse($cliente->updated_at)->format('d/m/Y H:i') }}</p>
+                <p>Criação:             {{ Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y ') }}</p>
+                <p>Última modificação:  {{ Carbon\Carbon::parse($cliente->updated_at)->format('d/m/Y ') }}</p>
             
                 <a class="btn btn-primary " href="{{URL::to('clientes')}}">Voltar</a>
             </div>

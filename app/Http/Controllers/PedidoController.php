@@ -24,11 +24,27 @@ class PedidoController extends Controller
 
     public function search(Request $request)
     {
-        $pedidos = Pedido::where('cliente_id', '=', $request->cliente_id)
-            // ->where('status', '=', $request->status)
-            // ->where('data_pedido', '=', $request->data_pedido)
-            ->paginate(20);
-        // dd($request);
+
+        $callbackSearch = function ($query) use($request)
+        {
+            if ($request->cliente_id != null)
+            {
+                $query->where('cliente_id' ,$request->cliente_id );
+            }
+        
+            if ($request->status != null )
+            {
+                $query->where('status', $request->status);
+            }
+        
+            if ($request->data_pedido != null )
+            {
+                $query->where('data_pedido',   $request->data_pedido);
+            }
+        };
+        
+        $pedidos = Pedido::where($callbackSearch)->paginate($request->number_page);
+      
         $clientes = Cliente::pluck('nome', 'id');
         return view('pedido.index', ['pedidos' => $pedidos, 'clientes' => $clientes]);
     }

@@ -15,16 +15,20 @@
             <div class="row">
                 <div class="col-4">
                     {{ Form::label('cliente', 'Cliente:', ['class' => ' ']) }}
-                    {{ Form::select('cliente_id', $clientes, null, ['class' => 'form-control ']) }}
+                    {{ Form::select('cliente_id', $clientes, null, ['placeholder' => 'Selecione uma opção','class' => 'form-control '] ) }}
                 </div>
 
-                <div class="col-4">
+                <div class="col-2">
                     {{ Form::label('status', 'status:', ['class' => ' ']) }}
                     {{ Form::select('status', ['' => '', 'A' => 'Aberto', 'C' => 'Cancelado', 'P' => 'Pago'], null, ['class' => 'form-control']) }}
                 </div>
                 <div class="col-2">
                     {{ Form::label('data_pedido', 'Data do pedido:') }}
                     {{ Form::date('data_pedido', null, ['class' => 'form-control ']) }}
+                </div>
+                <div class="col-2">
+                    {{ Form::label('number_page', 'Numero de páginas:', ['class' => ' ']) }}
+                    {{ Form::select('number_page', ['10' => '10','20' => '20', '50' => '50', '100' => '100' ], '20', ['class' => 'form-control']) }}
                 </div>
                 <div class="col-2">
                     {{ Form::submit('Filtrar', ['class' => 'btn btn-outline-success mt-3 mb-2']) }}

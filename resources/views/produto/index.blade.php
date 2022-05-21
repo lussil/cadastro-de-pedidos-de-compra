@@ -21,12 +21,17 @@
                     {{ Form::label('cod_barras', 'Cod. Barras:', ['class' => ' ']) }}
                     {{ Form::text('cod_barras', null, ['class' => 'form-control', 'placeholder' => '']) }}
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     {{ Form::label('valor', 'Valor:') }}
                     {{ Form::number('valor_unitario', null, ['class' => 'form-control ', 'step' => 'any', 'placeholder' => 'Ex: R$ 4,00']) }}
                 </div>
-                <div class="col-3">
+                <div class="col-2">
+                    {{ Form::label('number_page', 'Numero de páginas:', ['class' => ' ']) }}
+                    {{ Form::select('number_page', ['10' => '10','20' => '20', '50' => '50', '100' => '100' ], '20', ['class' => 'form-control']) }}
+                </div>
+                <div class="col-2">
                     {{ Form::submit('Filtrar', ['class' => 'btn btn-outline-success mt-4 mb-2']) }}
+                    <a class="btn btn-primary mt-4 mb-2" href="{{ URL::to('produtos') }}">Limpar</a>
                     {{ Form::close() }}
                 </div>
             </div>

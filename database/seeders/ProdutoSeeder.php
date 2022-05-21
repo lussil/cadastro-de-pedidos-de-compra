@@ -20,7 +20,43 @@ class ProdutoSeeder extends Seeder
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
@@ -30,22 +66,7 @@ class ProdutoSeeder extends Seeder
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
         ]);
-
-        Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
-        ]);   Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
-        ]);
-
         Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
@@ -56,52 +77,57 @@ class ProdutoSeeder extends Seeder
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
         ]);
-
         Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
         ]);
-
         Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
         ]);
-
         Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
-            'nome' => Str::random(10),
-            'cod_barras' => Str::random(10),
-            'valor_unitario' => 6000.00,
         ]);
-
         Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
-        ]);   Produto::create([
+        ]);
+        Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),
             'valor_unitario' => 6000.00,
         ]);
-
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
+        Produto::create([
+            'nome' => Str::random(10),
+            'cod_barras' => Str::random(10),
+            'valor_unitario' => 6000.00,
+        ]);
         Produto::create([
             'nome' => Str::random(10),
             'cod_barras' => Str::random(10),

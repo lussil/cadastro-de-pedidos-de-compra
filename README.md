@@ -15,12 +15,6 @@ No terminal, dentro do diretório do projeto instale as dependencia usando o com
 
 Ainda no terminal execute as migrates com o comando 'php artisan migrate' e as seeders com comando 'php artisan db:seed'
 
-Em alguns casos é nescessario executar as migrates individualmente, nesses casos utilize o comando php artisan db:seed --class=UserSeeder 
-faça isso para cada seeder.
-
---class=UserSeeder 
---class=ProdutoSeeder
---class=ClienteSeeder
 
 Agora você pode dar um start no apache ou no terminal utilizar o comando 'php artisan serve' 
 

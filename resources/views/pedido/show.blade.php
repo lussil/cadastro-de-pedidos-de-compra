@@ -25,9 +25,9 @@
                 <p>ID: {{ $pedido->id }}</p>
                 <p>Status: {{ $pedido->status }}</p>
                 <p>Nome do cliente: {{ $pedido->cliente->nome }}</p>
-                <p>Data do pedido: {{ Carbon\Carbon::parse($pedido->data_pedido)->format('d/m/Y H:i') }}</p>
-                <p>Criação: {{ Carbon\Carbon::parse($pedido->created_at)->format('d/m/Y H:i') }}</p>
-                <p>Última modificação: {{ Carbon\Carbon::parse($pedido->updated_at)->format('d/m/Y H:i') }}</p>
+                <p>Data do pedido: {{ Carbon\Carbon::parse($pedido->data_pedido)->format('d/m/Y ') }}</p>
+                <p>Criação: {{ Carbon\Carbon::parse($pedido->created_at)->format('d/m/Y ') }}</p>
+                <p>Última modificação: {{ Carbon\Carbon::parse($pedido->updated_at)->format('d/m/Y ') }}</p>
                 <p>Produtos:
                 <ul>
                     @foreach ($pedidoProdutoItens as $key => $pedidoProduto)

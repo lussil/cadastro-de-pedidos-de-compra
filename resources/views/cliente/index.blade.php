@@ -12,7 +12,7 @@
 
             {{ Form::open(['url' => '/cliente/search']) }}
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     {{ Form::label('nome', 'Nome do cliente:') }}
                     {{ Form::text('nome', null, ['class' => 'form-control', 'placeholder' => 'Ex: Fulado da silva']) }}
                 </div>
@@ -25,8 +25,13 @@
                     {{ Form::label('cpf', 'CPF:') }}
                     {{ Form::text('cpf', null, ['class' => 'form-control ', 'step' => 'any', 'placeholder' => 'Somente Numeros. Ex: 12345678910']) }}
                 </div>
-                <div class="col-3 mt-3">
+                <div class="col-2">
+                    {{ Form::label('number_page', 'Numero de páginas:', ['class' => ' ']) }}
+                    {{ Form::select('number_page', ['10' => '10','20' => '20', '50' => '50', '100' => '100' ], '20', ['class' => 'form-control']) }}
+                </div>
+                <div class="col-2 mt-3">
                     {{ Form::submit('Filtrar', ['class' => 'btn btn-outline-success mt-2 mb-2']) }}
+                    <a class="btn btn-primary  mt-2 mb-2" href="{{ URL::to('clientes') }}">Limpar</a>
                     {{ Form::close() }}
                 </div>
             </div>

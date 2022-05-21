@@ -23,7 +23,7 @@ class ProdutoController extends Controller
         $produtos = Produto::where('cod_barras', 'LIKE', "%{$request->cod_barras}%")
             ->where('nome', 'LIKE', "%{$request->nome}%")
             ->where('valor_unitario', 'LIKE', "%{$request->valor_unitario}%")
-            ->paginate(20);
+            ->paginate($request->number_page);
         return view('produto.index', ['produtos' => $produtos]);
     }
 

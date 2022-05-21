@@ -19,8 +19,8 @@ class PedidoProdutoController extends Controller
     {
         $pedido = Pedido::findOrfail($id);
         $pedidoProdutoItens = PedidoProduto::where('pedido_id', '=', $id)->paginate(20);
-        // dd($pedidoProdutoItens[0]->produto->nome);
         $produtos = Produto::pluck('nome', 'id');
+        
         return view('pedido_produto.index', ['pedido' => $pedido, 'pedidoProdutoItens' => $pedidoProdutoItens, 'produtos' => $produtos]);
     }
 
